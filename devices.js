@@ -58,6 +58,7 @@ var devices_recommended = {
     "FRITZ!Box 7520": "avm-fritz-box-7520",
     "FRITZ!Box 7530": "avm-fritz-box-7530",
     "FRITZ!Repeater 1200": "avm-fritz-repeater-1200",
+    "FRITZ!Repeater 3000": "avm-fritz-repeater-3000",
     "FRITZ!WLAN Repeater 300E": "avm-fritz-wlan-repeater-300e",
     "FRITZ!WLAN Repeater 450E": "avm-fritz-wlan-repeater-450e",
     "FRITZ!WLAN Repeater 1750E": "avm-fritz-wlan-repeater-1750e",
@@ -129,6 +130,7 @@ var devices_recommended = {
     "WS-AP3805i": "extreme-networks-ws-ap3805i",
     "WS-AP3825i": "extreme-networks-ws-ap3825i",
     "WS-AP3915i": "extreme-networks-ws-ap3915i",
+    "WS-AP3935i": "extreme-networks-ap3935",
   },
 
   "FriendlyElec": {
@@ -356,6 +358,7 @@ var devices_recommended = {
     "Archer C59": "tp-link-archer-c59",
     "Archer C6": {"tp-link-archer-c6-v2-eu-ru-jp": "v2 (EU/RU/JP)", "tp-link-archer-c6-v2": "v2 (EU/RU/JP)", "tp-link-archer-c6-v3": "v3"},
     "Archer C7": "tp-link-archer-c7",
+    "Archer AX23": "tp-link-archer-ax23",
     "CPE210": {"tp-link-cpe210": "", "tp-link-cpe210-220": ""},
     "CPE220": {"tp-link-cpe220": "", "tp-link-cpe220-v1.1": "--ignore--"},
     "CPE510": {"tp-link-cpe510": "", "tp-link-cpe510-520": "", "tp-link-cpe520": "--ignore--"},
@@ -441,7 +444,7 @@ var devices_recommended = {
   },
 
   "Xiaomi": {
-    "AX3000T": "xiaomi-mi-router-ax3000t",
+    "AX3000T": {"xiaomi-mi-router-ax3000t": "default", "xiaomi-mi-router-ax3000t-openwrt-u-boot-layout": "u-boot"},
     "AX3200 (RB03)": "xiaomi-redmi-router-ax6s",
     "AX3600": "xiaomi-ax3600",
     "Mi RA75": "xiaomi-mi-ra75",
@@ -619,11 +622,15 @@ var devices_broken = {
   "AVM": {
     // no button for setup mode
     "FRITZ!Box 3370": {"avm-fritz-box-3370-rev-2-hynix-nand": "v2 Hynix", "avm-fritz-box-3370-rev-2-micron-nand": "v2 Micron"},
-    "FRITZ!Box 7430": "avm-fritz-box-7430",
   },
 
   "D-Link": {
     "DGS-1210-10P": "d-link_dgs-1210-10p", // removed
+  },
+
+  "Google": {
+    // open device
+    "Wifi Gale": "google-wifi-gale",
   },
 
   "Raspberry Pi Foundation": {
@@ -680,6 +687,7 @@ var devices_info = {
   "Asus": {
     "RT-AC51U": "https://openwrt.org/toh/asus/rt-ac51u#installation",
     "RT-AX52": "https://openwrt.org/toh/asus/rt-ax52#installation",
+    "RT-AX53U (RT-AX1800U)": "https://openwrt.org/toh/asus/rt-ax53u#installation_with_mtd-write",
     "TUF-AX4200": "https://github.com/freifunk-darmstadt/projects/wiki/90-%E2%80%90-Hardware-%E2%80%90-ASUS-TUF-AX4200",
     "TUF-AX6000": "https://github.com/herbetom/openwrt-asus-filogic-factory/releases/latest",
   },
