@@ -616,7 +616,7 @@ var devices_16_32 = {
   "VoCore": {
     "VoCore": {"vocore-16M": "16M"},
   },
-}
+};
 
 var devices_broken = {
   "AVM": {
@@ -658,7 +658,7 @@ var devices_broken = {
     "TD-W8980": "tp-link-td-w8980", // 5GHz unsupported
     "TD-W9980": "tp-link-td-w9980", // 5GHz unsupported
   },
-}
+};
 
 var vendormodels = {
   "recommended": devices_recommended,
@@ -669,7 +669,7 @@ var vendormodels = {
   "8_32": devices_8_32,
   "16_32": devices_16_32,
   "broken": devices_broken,
-}
+};
 
 var devices_info = {
   "Aruba": {
