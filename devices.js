@@ -58,6 +58,7 @@ var devices_recommended = {
     "FRITZ!Box 7520": "avm-fritz-box-7520",
     "FRITZ!Box 7530": "avm-fritz-box-7530",
     "FRITZ!Repeater 1200": "avm-fritz-repeater-1200",
+    "FRITZ!Repeater 3000": "avm-fritz-repeater-3000",
     "FRITZ!WLAN Repeater 300E": "avm-fritz-wlan-repeater-300e",
     "FRITZ!WLAN Repeater 450E": "avm-fritz-wlan-repeater-450e",
     "FRITZ!WLAN Repeater 1750E": "avm-fritz-wlan-repeater-1750e",
@@ -129,6 +130,7 @@ var devices_recommended = {
     "WS-AP3805i": "extreme-networks-ws-ap3805i",
     "WS-AP3825i": "extreme-networks-ws-ap3825i",
     "WS-AP3915i": "extreme-networks-ws-ap3915i",
+    "WS-AP3935i": "extreme-networks-ap3935",
   },
 
   "FriendlyElec": {
@@ -354,8 +356,9 @@ var devices_recommended = {
     "Archer C5": "tp-link-archer-c5",
     "Archer C50": {"tp-link-archer-c50": "v1", "tp-link-archer-c50-v3": "v3", "tp-link-archer-c50-v4": "v4", "tp-link-archer-c50-v6-ca-eu-ru": "v6"},
     "Archer C59": "tp-link-archer-c59",
-    "Archer C6": {"tp-link-archer-c6-v2-eu-ru-jp": "v2 (EU/RU/JP)", "tp-link-archer-c6-v2": "v2 (EU/RU/JP)", "tp-link-archer-c6-v3": "v3"},
+    "Archer C6": {"tp-link-archer-c6-v2-eu-ru-jp": "v2", "tp-link-archer-c6-v2": "v2", "tp-link-archer-c6-v3": "v3"},
     "Archer C7": "tp-link-archer-c7",
+    "Archer AX23": "tp-link-archer-ax23",
     "CPE210": {"tp-link-cpe210": "", "tp-link-cpe210-220": ""},
     "CPE220": {"tp-link-cpe220": "", "tp-link-cpe220-v1.1": "--ignore--"},
     "CPE510": {"tp-link-cpe510": "", "tp-link-cpe510-520": "", "tp-link-cpe520": "--ignore--"},
@@ -441,7 +444,7 @@ var devices_recommended = {
   },
 
   "Xiaomi": {
-    "AX3000T": "xiaomi-mi-router-ax3000t",
+    "AX3000T": {"xiaomi-mi-router-ax3000t": "default", "xiaomi-mi-router-ax3000t-openwrt-u-boot-layout": "u-boot"},
     "AX3200 (RB03)": "xiaomi-redmi-router-ax6s",
     "AX3600": "xiaomi-ax3600",
     "Mi RA75": "xiaomi-mi-ra75",
@@ -472,7 +475,7 @@ var devices_recommended = {
     "NWA50AX": "zyxel-nwa50ax",
     "NWA50AX Pro": "zyxel-nwa50ax-pro",
     "NWA55AXE": "zyxel-nwa55axe",
-    "WSM20": "zyxel-wsm20",
+    "WSM20 (Multy M1)": "zyxel-wsm20",
   },
 
   "ZBT": {
@@ -613,17 +616,21 @@ var devices_16_32 = {
   "VoCore": {
     "VoCore": {"vocore-16M": "16M"},
   },
-}
+};
 
 var devices_broken = {
   "AVM": {
     // no button for setup mode
     "FRITZ!Box 3370": {"avm-fritz-box-3370-rev-2-hynix-nand": "v2 Hynix", "avm-fritz-box-3370-rev-2-micron-nand": "v2 Micron"},
-    "FRITZ!Box 7430": "avm-fritz-box-7430",
   },
 
   "D-Link": {
     "DGS-1210-10P": "d-link_dgs-1210-10p", // removed
+  },
+
+  "Google": {
+    // open device
+    "Wifi Gale": "google-wifi-gale",
   },
 
   "Raspberry Pi Foundation": {
@@ -651,7 +658,7 @@ var devices_broken = {
     "TD-W8980": "tp-link-td-w8980", // 5GHz unsupported
     "TD-W9980": "tp-link-td-w9980", // 5GHz unsupported
   },
-}
+};
 
 var vendormodels = {
   "recommended": devices_recommended,
@@ -662,7 +669,7 @@ var vendormodels = {
   "8_32": devices_8_32,
   "16_32": devices_16_32,
   "broken": devices_broken,
-}
+};
 
 var devices_info = {
   "Aruba": {
@@ -680,6 +687,7 @@ var devices_info = {
   "Asus": {
     "RT-AC51U": "https://openwrt.org/toh/asus/rt-ac51u#installation",
     "RT-AX52": "https://openwrt.org/toh/asus/rt-ax52#installation",
+    "RT-AX53U (RT-AX1800U)": "https://openwrt.org/toh/asus/rt-ax53u#installation_with_mtd-write",
     "TUF-AX4200": "https://github.com/freifunk-darmstadt/projects/wiki/90-%E2%80%90-Hardware-%E2%80%90-ASUS-TUF-AX4200",
     "TUF-AX6000": "https://github.com/herbetom/openwrt-asus-filogic-factory/releases/latest",
   },
@@ -703,9 +711,20 @@ var devices_info = {
     "FRITZ!WLAN Repeater 450E": "https://fritz-tools.readthedocs.io/"
   },
   "Cudy": {
+    "WR2100": "https://openwrt.org/toh/cudy/cudy_wr2100_v1#installation_using_web_interface",
     "TR3000": "https://forum.darmstadt.freifunk.net/t/installation-cudy-tr3000/1010",
   },
+  "Enterasys": {
+    "WS-AP3705i": "https://git.openwrt.org/?p=openwrt/openwrt.git;a=commit;h=ebddc5f984a240980303aed68524eb615484eef8",
+    "WS-AP3710i": "https://git.openwrt.org/?p=openwrt/openwrt.git;a=commit;h=16b01fb1b9c99513c318109bef96a1a3545c57a0",
+    "WS-AP3715i": "https://git.openwrt.org/?p=openwrt/openwrt.git;a=commit;h=765f66810a3324cc35fa6471ee8eeee335ba8c2b",
+  },
+  "Extreme Networks": {
+    "WS-AP3805i": "https://git.openwrt.org/?p=openwrt/openwrt.git;a=commit;h=f8c87aa2d27ab405f284dd4357377ab5c893a345",
+    "WS-AP3825i": "https://forum.darmstadt.freifunk.net/t/flashing-of-the-extreme-networks-ws-ap3825i/923",
+  },
   "D-Link": {
+    "COVR-X1860": "https://freifunk-aachen.de/2023/08/03/installationsanleitung-d-link-covr-x1860/",
     "DAP-1620": "https://git.openwrt.org/?p=openwrt/openwrt.git;a=commit;h=e4c7703d2a62b8914e4723adae3f67c68a57532c",
     "DAP-2680": "https://git.openwrt.org/?p=openwrt/openwrt.git;a=commit;h=5b58710fad2137eedad874f0fe8fe22082d1edc6",
     "DAP-X1860": "https://forum.darmstadt.freifunk.net/t/installation-d-link-dap-x1860/987",
@@ -750,6 +769,8 @@ var devices_info = {
     },
     "R6120": "https://freifunk-ingolstadt.de/eigener-freifunk-hotspot/anleitung/installationsanleitung-fuer-netgear-r6120/",
     "R6220": "https://freifunk-ingolstadt.de/installationsanleitung-fuer-netgear-r6220/",
+    "WAX202": "https://openwrt.org/toh/netgear/wax202#oem_easy_installation",
+    "WAX206": "https://openwrt.org/toh/netgear/wax206#oem_easy_installation",
     "WAX220": "https://openwrt.org/toh/netgear/wax220#oem_easy_installation",
   },
   "RAVPower": {
@@ -770,7 +791,7 @@ var devices_info = {
     "EdgeRouter X-SFP": "https://github.com/oszilloskop/UBNT_ERX_Gluon_Factory-Image/blob/master/README.md#gluon-auf-ubnt-edgerouter-x-und-x-sfp",
     "Swiss Army Knife Ultra": "https://git.openwrt.org/?p=openwrt/openwrt.git;a=commit;h=5ad05681f2de00c8c6d6449df2b958b0838dbc1a",
     "UniFi 6 Lite": "https://openwrt.org/toh/ubiquiti/unifi6lite#installation",
-    "UniFi 6 LR": "https://openwrt.org/toh/ubiquiti/unifi6lite#installation",
+    "UniFi 6 LR": "https://openwrt.org/toh/ubiquiti/unifi_6_lr#installation_steps",
     "UniFi 6+": "https://git.openwrt.org/?p=openwrt/openwrt.git;a=commit;h=75ee5546e9b7cfa5bbfd6f844ab8c5fffd5bb594",
     "UniFi AC Lite": "https://forum.darmstadt.freifunk.net/t/unifi-ap-erstinstallation/790",
     "UniFi AC LR": "https://forum.darmstadt.freifunk.net/t/unifi-ap-erstinstallation/790",
@@ -807,5 +828,6 @@ var devices_info = {
     "NWA50AX": "https://forum.darmstadt.freifunk.net/t/installation-nwa50ax-nwa55axe/964",
     "NWA50AX Pro": "https://git.openwrt.org/?p=openwrt/openwrt.git;a=commit;h=f0445746f6fd96fc7c5394b238153bd2ff22bc5b",
     "NWA55AXE": "https://forum.darmstadt.freifunk.net/t/installation-nwa50ax-nwa55axe/964",
+    "WSM20 (Multy M1)": "https://freifunk-aachen.de/2024/01/04/installationsanleitung-zyxel-wsm20/",
   },
 }
